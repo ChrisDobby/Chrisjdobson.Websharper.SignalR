@@ -1,6 +1,8 @@
 Chrisjdobson.Websharper.SignalR
 ===============================
 
+[![Build status](https://ci.appveyor.com/api/projects/status/6q6wyp87i1w2qhlj?svg=true)](https://ci.appveyor.com/project/ChrisDobby/chrisjdobson-websharper-signalr)
+
 A SignalR extension for WebSharper.  Currently very early alpha version - more functionality to be added
 
 [![NuGet](http://img.shields.io/badge/NuGet-0.1.0-orange.svg?style=flat)](http://www.nuget.org/packages/chrisjdobson.WebSharper.SignalR/)
