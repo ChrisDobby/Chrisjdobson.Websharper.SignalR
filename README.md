@@ -28,10 +28,14 @@ And send like this:
 s |> SignalR.Send<Msg> "chat" {User = "User1"; Message = "Hello"}
 ```
 
-Turn on client side logging:
+Configure connection:
 
 ``` fsharp
-SignalRConfig.New() |> SignalRConfig.WithLogging()
+SignalRConnection.New() 
+	|> SignalRConnection.WithLogging
+	|> SignalRConnection.WithoutLogging
+	|> SignalRConnection.Error (fun e -> JavaScript.Alert e)
+	|> SignalRConnection.Start
 ```
 
 ## Samples ##

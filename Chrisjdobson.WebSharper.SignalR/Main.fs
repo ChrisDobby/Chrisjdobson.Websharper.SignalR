@@ -7,17 +7,25 @@ open IntelliFactory.WebSharper.Html
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
-type SignalRConfig[<JavaScript>]() =
+type SignalRConnection[<JavaScript>]() =
     [<JavaScript>]
-    static member New() = SignalRConfig()
+    static member New() = SignalRConnection()
 
     [<JavaScript>]
     [<Inline "connection.logging = true">]
-    static member WithLogging (c : SignalRConfig) = c
+    static member WithLogging (c : SignalRConnection) = c
 
     [<JavaScript>]
     [<Inline "connection.logging = false">]
-    static member WithoutLogging (c : SignalRConfig) = c
+    static member WithoutLogging (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.error($f)">]
+    static member ConnectionError (f : string -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.start()">]
+    static member Start (c : SignalRConnection) = ()
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
@@ -34,8 +42,4 @@ type SignalR[<JavaScript>](hubName : string) =
     [<JavaScript>]
     [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m)">]
     static member Send<'a> (name : string) (m : 'a) (s : SignalR) = s
-
-    [<JavaScript>]
-    [<Inline "connection.start()">]
-    static member Start() = ()
 
