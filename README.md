@@ -32,10 +32,15 @@ Configure connection:
 
 ``` fsharp
 SignalRConnection.New() 
-	|> SignalRConnection.WithLogging
-	|> SignalRConnection.WithoutLogging
-	|> SignalRConnection.Error (fun e -> JavaScript.Alert e)
-	|> SignalRConnection.Start
+    |> SignalRConnection.WithLogging
+    |> SignalRConnection.ConnectionError (fun e -> JavaScript.Alert e)
+    |> SignalRConnection.Starting (fun _ -> JavaScript.Alert "Starting")
+    |> SignalRConnection.Received (fun _ -> JavaScript.Alert "Received")
+    |> SignalRConnection.ConnectionSlow (fun _ -> JavaScript.Alert "Slow connection")
+    |> SignalRConnection.Reconnecting (fun _ -> JavaScript.Alert "Reconnecting")
+    |> SignalRConnection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
+    |> SignalRConnection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
+    |> SignalRConnection.Start
 ```
 
 ## Samples ##

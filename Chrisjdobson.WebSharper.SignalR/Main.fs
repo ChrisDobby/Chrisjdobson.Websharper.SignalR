@@ -24,6 +24,30 @@ type SignalRConnection[<JavaScript>]() =
     static member ConnectionError (f : string -> unit) (c : SignalRConnection) = c
 
     [<JavaScript>]
+    [<Inline "connection.starting($f)">]
+    static member Starting (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.received($f)">]
+    static member Received (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.connectionSlow($f)">]
+    static member ConnectionSlow (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.reconnecting($f)">]
+    static member Reconnecting (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.reconnected($f)">]
+    static member Reconnected (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.disconnected($f)">]
+    static member Disconnected (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
     [<Inline "connection.start()">]
     static member Start (c : SignalRConnection) = ()
 
