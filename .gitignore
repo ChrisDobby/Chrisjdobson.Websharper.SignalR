@@ -177,3 +177,5 @@ FakesAssemblies/
 #WebSharper outputs
 Scripts/
 Content/
+
+/build
