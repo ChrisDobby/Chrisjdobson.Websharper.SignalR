@@ -7,6 +7,20 @@ open IntelliFactory.WebSharper.Html
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
+type SignalRConfig[<JavaScript>]() =
+    [<JavaScript>]
+    static member New() = SignalRConfig()
+
+    [<JavaScript>]
+    [<Inline "connection.logging = true">]
+    static member WithLogging (c : SignalRConfig) = c
+
+    [<JavaScript>]
+    [<Inline "connection.logging = false">]
+    static member WithoutLogging (c : SignalRConfig) = c
+
+[<Require(typeof<Dependencies.SignalRJs>)>]
+[<Require(typeof<Dependencies.SignalRConnection>)>]
 type SignalR[<JavaScript>](hubName : string) =
     member private x.HubName() = hubName
 

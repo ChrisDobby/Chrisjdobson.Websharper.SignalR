@@ -32,6 +32,7 @@ module Client =
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> model.MessageList.Add m)
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> JavaScript.Alert ("Message received from " + m.Name))
 
+        SignalRConfig.New() |> SignalRConfig.WithLogging |> ignore
         SignalR.Start()
         
         Var.Set model.User (Prompt "Enter your name:" "")

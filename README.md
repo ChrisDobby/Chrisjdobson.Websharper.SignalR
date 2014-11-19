@@ -28,6 +28,12 @@ And send like this:
 s |> SignalR.Send<Msg> "chat" {User = "User1"; Message = "Hello"}
 ```
 
+Turn on client side logging:
+
+``` fsharp
+SignalRConfig.New() |> SignalRConfig.WithLogging()
+```
+
 ## Samples ##
 
 See the ChatSample application in the solution for a simple example
