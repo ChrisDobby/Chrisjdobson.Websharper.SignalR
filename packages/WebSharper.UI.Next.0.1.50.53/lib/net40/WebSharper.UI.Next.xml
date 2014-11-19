@@ -1,0 +1,2933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>WebSharper.UI.Next</name></assembly>
+<members>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Anim.Empty">
+<summary>
+ Do-nothing animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.WhenDone(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Microsoft.FSharp.Core.Unit},IntelliFactory.WebSharper.UI.Next.Anim)">
+<summary>
+ Attach a finalizer action to an animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Simple``1(IntelliFactory.WebSharper.UI.Next.Interpolation{``0},IntelliFactory.WebSharper.UI.Next.Easing,System.Double,``0,``0)">
+<summary>
+ A simple interpolating animation using given easing and duration.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Play(IntelliFactory.WebSharper.UI.Next.Anim)">
+<summary>
+ Plays the animations.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Pack(IntelliFactory.WebSharper.UI.Next.Anim{Microsoft.FSharp.Core.Unit})">
+<summary>
+ Constructs a singleton animation set.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.Anim{``0})">
+<summary>
+ Maps over an animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Delayed``1(IntelliFactory.WebSharper.UI.Next.Interpolation{``0},IntelliFactory.WebSharper.UI.Next.Easing,System.Double,System.Double,``0,``0)">
+<summary>
+ A simple interpolating animation using given easing and duration, delayed by the given time.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Concat(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Anim})">
+<summary>
+ Combining many animations.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Anim.Append(IntelliFactory.WebSharper.UI.Next.Anim,IntelliFactory.WebSharper.UI.Next.Anim)">
+<summary>
+ Combining two animations.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Anim">
+<summary>
+ Represents a combination of animations.
+</summary>
+</member>
+<member name="F:IntelliFactory.WebSharper.UI.Next.IntelliFactory.WebSharper.UI.Next.Anim`1.Duration">
+<summary>
+ Duration in milliseconds.
+</summary>
+</member>
+<member name="F:IntelliFactory.WebSharper.UI.Next.IntelliFactory.WebSharper.UI.Next.Anim`1.Compute">
+<summary>
+ Compute the value at a given normalized time.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Anim`1">
+<summary>
+ An animation of a given value, defined by duration and a time-function.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.AppendList`1">
+<summary>
+ A list that does not punish too much for appending.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Attr.Empty">
+<summary>
+ Empty attribute list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Style(System.String,System.String)">
+<summary>
+ Sets a style attribute, such as `background-color`.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Handler(System.String,Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.Dom.Event,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Sets an event handler, for a given event such as `click`.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.DynamicStyle(System.String,IntelliFactory.WebSharper.UI.Next.View{System.String})">
+<summary>
+ Dynamic variant of Style.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.DynamicPred(System.String,IntelliFactory.WebSharper.UI.Next.View{System.Boolean},IntelliFactory.WebSharper.UI.Next.View{System.String})">
+<summary>
+ Sets an attribute when a view satisfies a predicate.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.DynamicCustom``1(Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.Dom.Element,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Dynamic with a custom setter.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.DynamicClass``1(System.String,IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean})">
+<summary>
+ Sets a CSS class when the given view satisfies a predicate.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Dynamic(System.String,IntelliFactory.WebSharper.UI.Next.View{System.String})">
+<summary>
+ Dynamic variant of Create.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Create(System.String,System.String)">
+<summary>
+ Sets a basic DOM attribute, such as `id` to a text value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Concat(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr})">
+<summary>
+ Concatenation on attributes.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Class(System.String)">
+<summary>
+ Sets a CSS class.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Append(IntelliFactory.WebSharper.UI.Next.Attr,IntelliFactory.WebSharper.UI.Next.Attr)">
+<summary>
+ Append on attributes.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.AnimatedStyle``1(System.String,IntelliFactory.WebSharper.UI.Next.Trans{``0},IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,System.String})">
+<summary>
+ Animated variant of Style.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attr.Animated``1(System.String,IntelliFactory.WebSharper.UI.Next.Trans{``0},IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,System.String})">
+<summary>
+ Animated variant of Create.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Attr">
+<summary>
+ A potentially time-varying or animated attribute list.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Doc.Empty">
+<summary>
+ Empty tree.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.TextView(IntelliFactory.WebSharper.UI.Next.View{System.String})">
+<summary>
+ Constructs a reactive text node.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.TextNode(System.String)">
+<summary>
+ Static variant of TextView.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.SvgElement(System.String,System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Doc})">
+<summary>
+ Same as Element, but uses SVG namespace.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Static(IntelliFactory.WebSharper.Dom.Element)">
+<summary>
+ Creates a Doc using a given DOM element
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Select``1(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},Microsoft.FSharp.Core.FSharpFunc{``0,System.String},Microsoft.FSharp.Collections.FSharpList{``0},IntelliFactory.WebSharper.UI.Next.Var{``0})">
+<summary>
+ Select box.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.RunById(System.String,IntelliFactory.WebSharper.UI.Next.Doc)">
+<summary>
+ Same as rn, but looks up the element by ID.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Run(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.UI.Next.Doc)">
+<summary>
+ Runs a reactive Doc as contents of the given element.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Radio``1(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},``0,IntelliFactory.WebSharper.UI.Next.Var{``0})">
+<summary>
+ Radio button.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.PasswordBox(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},IntelliFactory.WebSharper.UI.Next.Var{System.String})">
+<summary>
+ Password box.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Link(System.String,System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Link with a callback, acts just like a button.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.InputArea(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},IntelliFactory.WebSharper.UI.Next.Var{System.String})">
+<summary>
+ Input box.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Input(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},IntelliFactory.WebSharper.UI.Next.Var{System.String})">
+<summary>
+ Input box.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.EmbedView(IntelliFactory.WebSharper.UI.Next.View{IntelliFactory.WebSharper.UI.Next.Doc})">
+<summary>
+ Embeds time-varying fragments.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Element(System.String,System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Doc})">
+<summary>
+ Constructs a reactive element node.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.ConvertSeqBy``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.View{``0},IntelliFactory.WebSharper.UI.Next.Doc},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Doc.ConvertSeq with a custom key.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.ConvertSeq``1(Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.View{``0},IntelliFactory.WebSharper.UI.Next.Doc},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Converts a collection to Doc using View.ConvertSeq and embeds the concatenated reslut.
+ Shorthand for View.ConvertSeq f |&gt; View.Map Doc.Concat |&gt; Doc.EmbedView.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.ConvertBy``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Doc},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Doc.Convert with a custom key.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Convert``1(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Doc},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Converts a collection to Doc using View.Convert and embeds the concatenated reslut.
+ Shorthand for View.Convert f |&gt; View.Map Doc.Concat |&gt; Doc.EmbedView.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Concat(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Doc})">
+<summary>
+ Concatenation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.CheckBox``1(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},``0,IntelliFactory.WebSharper.UI.Next.Var{Microsoft.FSharp.Collections.FSharpList{``0}})">
+<summary>
+ Check Box Group.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Button(System.String,System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Attr},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Submit button. Takes a view of reactive components with which it is associated,
+ and a callback function of what to do with this view once the button is pressed.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.AsPagelet(IntelliFactory.WebSharper.UI.Next.Doc)">
+<summary>
+ Creates an IPagelet from a Doc, in a Div container.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Doc.Append(IntelliFactory.WebSharper.UI.Next.Doc,IntelliFactory.WebSharper.UI.Next.Doc)">
+<summary>
+ Append on trees.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Doc">
+<summary>
+ Represents a time-varying node or a node list.
+</summary>
+</member>
+<member name="F:IntelliFactory.WebSharper.UI.Next.IntelliFactory.WebSharper.UI.Next.Easing.TransformTime">
+<summary>
+ Transforms time coordinates, typically domain and range are both
+ on the unit interval [0, 1].
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Easing.CubicInOut">
+<summary>
+ Most commonly used easing.
+ let f t = 3. * (t ** 2.) - 2. * t ** 3.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Easing.Custom(Microsoft.FSharp.Core.FSharpFunc{System.Double,System.Double})">
+<summary>
+ Creates a custom easing.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Easing">
+<summary>
+ Represents an easing function, a transform on NormalizedTime.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Flow.Do">
+<summary>
+ Used within computation expressions to construct a new flow.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Static(IntelliFactory.WebSharper.UI.Next.Doc)">
+<summary>
+ Creates a flow from a static document.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Return``1(``0)">
+<summary>
+ Creates a flow from the given value, with an empty rendering function.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.Flow{``0})">
+<summary>
+ Mapping.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Embed``1(IntelliFactory.WebSharper.UI.Next.Flow{``0})">
+<summary>
+ Embeds a flow into a document, ignoring the result.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Define``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},IntelliFactory.WebSharper.UI.Next.Doc})">
+<summary>
+ Defines a flow, given a rendering function taking a continuation
+ to invoke when the interaction is done.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Flow.Bind``2(IntelliFactory.WebSharper.UI.Next.Flow{``0},Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Flow{``1}})">
+<summary>
+ Monadic composition: compose two flows, allowing the
+ result of one to be used to determine future ones.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Flow">
+<summary>
+ Flow functionality.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.FlowBuilder">
+<summary>
+ Computation expression builder for Flow.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Flow`1">
+<summary>
+ Support for mutli-stage applications,
+ where the current stage may depend on previous stages.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Interpolation.Double">
+<summary>
+ Interpolation for doubles.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Interpolation">
+<summary>
+ Common interpolation combinators.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Interpolation`1.Interpolate(System.Double,`0,`0)">
+<summary>
+ Interpolates between two values.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Interpolation`1">
+<summary>
+ How to to interpolate between two values of a given type.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Key.Fresh">
+<summary>
+ Constructs a fresh key.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Key">
+<summary>
+ Unique keys for equality.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel.View``2(IntelliFactory.WebSharper.UI.Next.ListModel{``0,``1})">
+<summary>
+ Views the current item sequence.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel.FromSeq``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Creates a new instance using intrinsic equality.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel.Create``2(Microsoft.FSharp.Core.FSharpFunc{``1,``0},System.Collections.Generic.IEnumerable{``1})">
+<summary>
+ Creates a new instance.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.ListModel">
+<summary>
+ ListModel combinators.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.UpdateBy(Microsoft.FSharp.Core.FSharpFunc{`1,Microsoft.FSharp.Core.FSharpOption{`1}},`0)">
+<summary>
+ Updates an item with the given key with another item computed by the given function.
+ If None is computed or the item to be updated is not found, nothing is done.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.Set(System.Collections.Generic.IEnumerable{`1})">
+<summary>
+ Updates the list with another one.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.RemoveByKey(`0)">
+<summary>
+ Removes an item by its key.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.Remove(`1)">
+<summary>
+ Removes an item.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.Iter(Microsoft.FSharp.Core.FSharpFunc{`1,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Applies a function to each item in the list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.FindByKey(`0)">
+<summary>
+ Checks if the item specified by its key is in the list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.ContainsKey(`0)">
+<summary>
+ Checks if the item specified by its key is in the list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.Clear">
+<summary>
+ Removes all elements of the list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ListModel`2.Add(`1)">
+<summary>
+ Adds an item. If an item with the given key exists, it is replaced.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.ListModel`2">
+<summary>
+ A helper type for ResizeArray-like observable structures.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Model.View``2(IntelliFactory.WebSharper.UI.Next.Model{``0,``1})">
+<summary>
+ Views a model.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Model.Update``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},IntelliFactory.WebSharper.UI.Next.Model{``1,``0})">
+<summary>
+ Imperative update on a model.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Model.Create``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0)">
+<summary>
+ Creates a mutable model based on a given object and
+ a projection to an immutable view.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Model">
+<summary>
+ Combinators for Model type.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Model`2.View">
+<summary>
+ Same as Model.View.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Model`2">
+<summary>
+ Helper type for coarse-grainde mutable models, with
+ a mutable type &apos;M and an immutable type &apos;I.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.NormalizedTime">
+<summary>
+ Normalized time typically ranges from 0.0 to 1.0, though can
+ temporarily take values outside of this range.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.RouteId">
+<summary>
+ Route identifier.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.RouteMap.Install``1(IntelliFactory.WebSharper.UI.Next.RouteMap{``0})">
+<summary>
+ Installs the map globally, tying it to the
+ hash-route of the current window. Call once per app.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.RouteMap.Create``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Collections.FSharpList{System.String}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Collections.FSharpList{System.String},``0})">
+<summary>
+ Creates a router.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.RouteMap">
+<summary>
+ RouteMap combinators.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.RouteMap`1">
+<summary>
+ Implements a bijection between &apos;T and a route.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Router.Route``2(IntelliFactory.WebSharper.UI.Next.RouteMap{``0},``0,Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.RouteId,Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.Var{``0},``1}})">
+<summary>
+ Defines a singleton router from a RouteMap, initial value and a handler.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Router.Prefix``1(System.String,IntelliFactory.WebSharper.UI.Next.Router{``0})">
+<summary>
+ Adds a hash-route prefix to the router, shifting its URLs by the prefix.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Router.Merge``1(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Router{``0}})">
+<summary>
+ Merges several routers. This can fail if they are not sufficiently
+ disambiguated with Router.Prefix.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Router.Install``1(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.RouteId},IntelliFactory.WebSharper.UI.Next.Router{``0})">
+<summary>
+ Installs the given router as the main router.
+ This should be called once per application.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Router.Dir``1(System.String,System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Router{``0}})">
+<summary>
+ Constructs a prefixed &quot;directory&quot; of routers.
+ Router.Dir p xs = Router.Prefix p (Router.Merge xs).
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Router">
+<summary>
+ Router combinators.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Router`1">
+<summary>
+ Composable router or site part.  Has the ability to parse
+ URL hashes, dispatch to appropriate handler, as well as
+ generate URL hashes representing a particular location.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Snap`1">
+<summary>
+ Represents an observable snapshot of a value.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Time">
+<summary>
+ Time duration in milliseconds.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.Trivial``1">
+<summary>
+ Creates a trivial transition that does not animate anything.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.Exit``1(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Anim{``0}},IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Updates the enter animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.Enter``1(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Anim{``0}},IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Updates the enter animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.Create``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Anim{``0}}})">
+<summary>
+ Creates a simple transition that animates change.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.Change``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Anim{``0}}},IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Updates the change animation.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.CanAnimateExit``1(IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Whether AnimateExit results are non-trivial.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.CanAnimateEnter``1(IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Whether AnimateEnter results are non-trivial.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.CanAnimateChange``1(IntelliFactory.WebSharper.UI.Next.Trans{``0})">
+<summary>
+ Whether AnimateChange results are non-trivial.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.AnimateExit``1(IntelliFactory.WebSharper.UI.Next.Trans{``0},``0)">
+<summary>
+ Animates removing an object - from a given value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.AnimateEnter``1(IntelliFactory.WebSharper.UI.Next.Trans{``0},``0)">
+<summary>
+ Animates adding an object - towards a given value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trans.AnimateChange``1(IntelliFactory.WebSharper.UI.Next.Trans{``0},``0,``0)">
+<summary>
+ Animates a change in an object, between values.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Trans">
+<summary>
+ Combinators on transitions.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Trans`1">
+<summary>
+ Defines animations for changing, adding and removing a value.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Trie`2">
+<summary>
+ Represents a trie from key to value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.Update``1(IntelliFactory.WebSharper.UI.Next.Var{``0},Microsoft.FSharp.Core.FSharpFunc{``0,``0})">
+<summary>
+ Updates the current value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.SetFinal``1(IntelliFactory.WebSharper.UI.Next.Var{``0},``0)">
+<summary>
+ Sets the final value (after this, Set/Update are invalid).
+ This is rarely needed, but can help solve memory leaks when
+ mutliple views are scheduled to wait on a variable that is never
+ going to change again.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.Set``1(IntelliFactory.WebSharper.UI.Next.Var{``0},``0)">
+<summary>
+ Sets the current value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.GetId``1(IntelliFactory.WebSharper.UI.Next.Var{``0})">
+<summary>
+ Gets the unique ID associated with the var.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.Get``1(IntelliFactory.WebSharper.UI.Next.Var{``0})">
+<summary>
+ Obtains the current value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Var.Create``1(``0)">
+<summary>
+ Creates a fresh variable with the given initial value.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Var">
+<summary>
+ Static operations on variables.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Var`1.Value(`0)">
+<summary>
+ Gets or sets the current value.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Var`1.View">
+<summary>
+ The corresponding view.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Var`1.Value">
+<summary>
+ Gets or sets the current value.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Var`1">
+<summary>
+ A time-varying variable that behaves like a ref cell that
+ can also be observed for changes by independent processes.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.View.Do">
+<summary>
+ An instance of ViewBuilder.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.UpdateWhile``1(``0,IntelliFactory.WebSharper.UI.Next.View{System.Boolean},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Only keeps the latest value of the second view when the predicate is true
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.SnapshotOn``2(``0,IntelliFactory.WebSharper.UI.Next.View{``1},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Snapshots the second view whenever the first updates
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Sink``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Calls the given sink function repeatedly with the latest view value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.MapAsync``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Lifting async functions.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Map2``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},IntelliFactory.WebSharper.UI.Next.View{``0},IntelliFactory.WebSharper.UI.Next.View{``1})">
+<summary>
+ Static composition.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Lifting functions.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Join``1(IntelliFactory.WebSharper.UI.Next.View{IntelliFactory.WebSharper.UI.Next.View{``0}})">
+<summary>
+ Dynamic composition.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.FromVar``1(IntelliFactory.WebSharper.UI.Next.Var{``0})">
+<summary>
+ Creation from a Var.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.ConvertSeqBy``3(Microsoft.FSharp.Core.FSharpFunc{``0,``2},Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.View{``0},``1},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ A variant of ConvertSeq with custom equality.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.ConvertSeq``2(Microsoft.FSharp.Core.FSharpFunc{IntelliFactory.WebSharper.UI.Next.View{``0},``1},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ An extended form of Convert where the conversion function accepts a
+ reactive view.  At every step, changes to inputs identified as being
+ the same object using equality are propagated via that view.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.ConvertBy``3(Microsoft.FSharp.Core.FSharpFunc{``0,``2},Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ A variant of Convert with custom equality.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Convert``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.View{System.Collections.Generic.IEnumerable{``0}})">
+<summary>
+ Starts a process doing stateful conversion with shallow memoization.
+ The process remembers inputs from the previous step, and re-uses outputs
+ from the previous step when possible instead of calling the converter function.
+ Memory use is proportional to the longest sequence taken by the View.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Const``1(``0)">
+<summary>
+ Creates a view that does not vary.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Bind``2(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.View{``1}},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Dynamic composition.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.View.Apply``2(IntelliFactory.WebSharper.UI.Next.View{Microsoft.FSharp.Core.FSharpFunc{``0,``1}},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Static composition.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.View">
+<summary>
+ Static operations on views.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ViewBuilder.Return``1(``0)">
+<summary>
+ Same as View.Const.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.ViewBuilder.Bind``2(IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.View{``1}})">
+<summary>
+ Same as View.Bind.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.ViewBuilder">
+<summary>
+ Computation expression builder for views.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.View`1">
+<summary>
+ A read-only view on a time-varying value that a can be observed.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.JQueue`1">
+<summary>
+ Simple imperative queues optimized for JS.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.AnimationFrame">
+
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Abbrev.Mailbox.StartProcessor``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit}})">
+<summary>
+ Simplified MailboxProcessor implementation.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.Mailbox">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.JQueue">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.Async">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.Dict">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.HashSet">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.Fresh">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev.Array">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Abbrev">
+<summary>
+ Abbreviations and small utilities for this assembly.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.AppendList.T`1">
+<summary>
+ The type synonym.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.FromArray``1(``0[])">
+<summary>
+ Constructs from an array.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.ToArray``1(IntelliFactory.WebSharper.UI.Next.AppendList{``0})">
+<summary>
+ Flattens to an array.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.Single``1(``0)">
+<summary>
+ Constructs a singleton list.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.Concat``1(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.AppendList{``0}})">
+<summary>
+ Concatenates many lists.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.Append``1(IntelliFactory.WebSharper.UI.Next.AppendList{``0},IntelliFactory.WebSharper.UI.Next.AppendList{``0})">
+<summary>
+ Appends two lists.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.AppendList.Empty``1">
+<summary>
+ The empty list.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.AppendList">
+<summary>
+ Operations on append-lists.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Attrs.Dyn">
+<summary>
+ Dynamic attributes.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.GetExitAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Animate exit transition.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.GetEnterAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Animate enter transition.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.GetChangeAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Animate a changing value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.HasExitAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Check if can animate exit transitions.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.HasEnterAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Check if can animate enter transitions.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.HasChangeAnim(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Check if currently animating a changing value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.Updates(IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Dynamic updates of attributes.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.Sync(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.UI.Next.Attrs.Dyn)">
+<summary>
+ Synchronizes dynamic attributes.
+ Exception: does not sync nodes that animate change transitions.
+ Those synchronize when the relevant transition is played.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Attrs.Insert(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.UI.Next.Attr)">
+<summary>
+ Inserts static attributes and computes dynamic attributes.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Attrs">
+<summary>
+ Internals used in Doc.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.DomUtility.InsertPos">
+<summary>
+ Position in a `children` list of a DOM Element
+ where a node can be inserted.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.RemoveClass(IntelliFactory.WebSharper.Dom.Element,System.String)">
+<summary>
+ Removes a class.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.AddClass(IntelliFactory.WebSharper.Dom.Element,System.String)">
+<summary>
+ Adds a class.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.InsertAt(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.UI.Next.DomUtility.InsertPos,IntelliFactory.WebSharper.Dom.Node)">
+<summary>
+ Inserts a new child node into the tree under
+ a given `parent` at given `pos`.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.RemoveNode(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.Dom.Node)">
+<summary>
+ Safe remove of a node
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.SetStyle(IntelliFactory.WebSharper.Dom.Element,System.String,System.String)">
+<summary>
+ Sets a style property.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.SetAttr(IntelliFactory.WebSharper.Dom.Element,System.String,System.String)">
+<summary>
+ Sets the value of the attribute given by
+ `name` to `value` in element `el`.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.RemoveAttr(IntelliFactory.WebSharper.Dom.Element,System.String)">
+<summary>
+ Removes a DOM attribute.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.CreateAttr(System.String,System.String)">
+<summary>
+ Creates a new DOM attribute.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.CreateText(System.String)">
+<summary>
+ Creates a new DOM text node with the given value.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.CreateSvgElement(System.String)">
+<summary>
+ Creates an element in the SVG namespace.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.CreateElement(System.String)">
+<summary>
+ Creates a new DOM element.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.Clear(IntelliFactory.WebSharper.Dom.Element)">
+<summary>
+ Removes all child nodes from the given DOM element.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.ClearAttrs(IntelliFactory.WebSharper.Dom.Element)">
+<summary>
+ Removes all attributes from the given DOM element.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.DomUtility.AppendTo(IntelliFactory.WebSharper.Dom.Element,IntelliFactory.WebSharper.Dom.Node)">
+<summary>
+ Appends a child node to the given DOM element.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.DomUtility.Doc">
+<summary>
+ The current DOM Document.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.DomUtility">
+<summary>
+ Utility functions for manipulating DOM.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Html.SvgAttributes">
+<summary>
+ SVG attributes.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Html.SvgElements">
+<summary>
+ SVG elements.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Html.Attributes">
+<summary>
+ HTML attributes.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Html.Elements">
+<summary>
+ HTML5 element functions.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Html">
+<summary>
+ This is an auto-generated module providing HTML5 vocabulary.
+ See tools/ElemScraper.fsx for the code-generation logic.
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Keyboard.LastPressed">
+<summary>
+ The last pressed key
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Keyboard.KeysPressed">
+<summary>
+ A list of all currently-pressed keys
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Input.Keyboard.IsPressed(System.Int32)">
+<summary>
+ True if the given key is pressed
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Mouse.RightPressed">
+<summary>
+ True if the right button is pressed
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Mouse.Position">
+<summary>
+ Current mouse position
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Mouse.MousePressed">
+<summary>
+ True if any mouse button is pressed
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Mouse.MiddlePressed">
+<summary>
+ True if the right button is pressed
+</summary>
+</member>
+<member name="P:IntelliFactory.WebSharper.UI.Next.Input.Mouse.LeftPressed">
+<summary>
+ True if the left button is pressed
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Input">
+
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_LessMultiplyGreater``2(IntelliFactory.WebSharper.UI.Next.View{Microsoft.FSharp.Core.FSharpFunc{``0,``1}},IntelliFactory.WebSharper.UI.Next.View{``0})">
+<summary>
+ Shorthand for View.Apply
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_GreaterGreaterEquals``2(IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.View{``1}})">
+<summary>
+ Shorthand for View.Bind.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_BarGreaterGreater``2(IntelliFactory.WebSharper.UI.Next.View{``0},Microsoft.FSharp.Core.FSharpFunc{``0,``1})">
+<summary>
+ Shorthand for View.Map.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_LessTwiddle``2(``0,Microsoft.FSharp.Core.FSharpFunc{``1,``1})">
+<summary>
+ Update value. Equivalent to o.Value &lt;- fn o.Value
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_ColonEquals``2(``0,``1)">
+<summary>
+ Set value. Equivalent to o.Value &lt;- v
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Notation.op_Dereference``2(``0)">
+<summary>
+ Get value. Equivalent to o.Value.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Notation">
+<summary>
+ A module with symbolic notation for common operations.
+ To use in your project, open this module.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.IsObsolete``1(IntelliFactory.WebSharper.UI.Next.Snap{``0})">
+<summary>
+ Checks if the snap is obsolete.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.When``1(IntelliFactory.WebSharper.UI.Next.Snap{``0},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.Unit,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Updates the second value while the first view is true
+ Schedule callbacks on lifecycle events.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.SnapshotOn``2(IntelliFactory.WebSharper.UI.Next.Snap{``0},IntelliFactory.WebSharper.UI.Next.Snap{``1})">
+<summary>
+ Snapshots when the first value changes
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.MapAsync``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},IntelliFactory.WebSharper.UI.Next.Snap{``0})">
+<summary>
+ Maps an async function.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.Map2``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2}},IntelliFactory.WebSharper.UI.Next.Snap{``0},IntelliFactory.WebSharper.UI.Next.Snap{``1})">
+<summary>
+ Combines two snaps.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.Map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},IntelliFactory.WebSharper.UI.Next.Snap{``0})">
+<summary>
+ Maps a function.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.Bind``2(Microsoft.FSharp.Core.FSharpFunc{``0,IntelliFactory.WebSharper.UI.Next.Snap{``1}},IntelliFactory.WebSharper.UI.Next.Snap{``0})">
+<summary>
+ Dynamic combination of snaps.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.MarkObsolete``1(IntelliFactory.WebSharper.UI.Next.Snap{``0})">
+<summary>
+ Marks the snapshot as obsolete.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.CreateWithValue``1(``0)">
+<summary>
+ Creates an snapshot with a given value; it will become obsolete later.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Snap.CreateForever``1(``0)">
+<summary>
+ Creates a snapshot that holds the given value forever, never obsolete.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Snap">
+<summary>
+ Operations on snapshots.
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Trie.LookupResult`2">
+<summary>
+ Result of lookup function.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.ToArray``2(IntelliFactory.WebSharper.UI.Next.Trie{``0,``1})">
+<summary>
+ Collects all values.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Mapi``3(Microsoft.FSharp.Core.FSharpFunc{System.Int32,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Collections.FSharpList{``0},Microsoft.FSharp.Core.FSharpFunc{``1,``2}}},IntelliFactory.WebSharper.UI.Next.Trie{``0,``1})">
+<summary>
+ Map with an index.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Map``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Collections.FSharpList{``0},Microsoft.FSharp.Core.FSharpFunc{``1,``2}},IntelliFactory.WebSharper.UI.Next.Trie{``0,``1})">
+<summary>
+ Maps a function over a trie.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Prefix``2(``0,IntelliFactory.WebSharper.UI.Next.Trie{``0,``1})">
+<summary>
+ Prefixes a trie.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Merge``2(System.Collections.Generic.IEnumerable{IntelliFactory.WebSharper.UI.Next.Trie{``0,``1}})">
+<summary>
+ Merges tries. Failure to merge exists when leaves conflict
+ with other leaves or else with prefixed tries.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Leaf``2(``0)">
+<summary>
+ Singleton &quot;here&quot; trie.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Empty``2">
+<summary>
+ Empty trie.
+</summary>
+</member>
+<member name="M:IntelliFactory.WebSharper.UI.Next.Trie.Lookup``2(IntelliFactory.WebSharper.UI.Next.Trie{``0,``1},System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Looks up a value in the trie.
+</summary>
+</member>
+<member name="T:IntelliFactory.WebSharper.UI.Next.Trie">
+<summary>
+ Trie combinators.
+</summary>
+</member>
+</members>
+</doc>

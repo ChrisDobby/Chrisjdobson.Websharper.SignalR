@@ -28,3 +28,4 @@ s |> SignalR.Send<Msg> "chat" {User = "User1"; Message = "Hello"}
 
 ## Samples ##
 
+See the ChatSample application in the solution for a simple example
