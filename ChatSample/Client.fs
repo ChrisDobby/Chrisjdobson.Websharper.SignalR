@@ -1,7 +1,7 @@
 namespace ChatSample
 
 open IntelliFactory.WebSharper
-open Chrisjdobson.WebSharper
+open Chrisjdobson.WebSharper.SignalR
 open IntelliFactory.WebSharper.UI.Next
 
 [<JavaScript>]
@@ -55,18 +55,18 @@ module Client =
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> model.MessageList.Add m)
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> JavaScript.Alert ("Message received from " + m.Name))
 
-        let startup = SignalRStartupConfig(Transport = [TransportType.LongPolling])
-        SignalRConnection.New()
-            |> SignalRConnection.WithLogging
-            |> SignalRConnection.ConnectionError (fun e -> JavaScript.Alert e)
-            |> SignalRConnection.Starting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection starting"))
-            |> SignalRConnection.Received (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection received"))
-            |> SignalRConnection.ConnectionSlow (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Slow connection"))
-            |> SignalRConnection.Reconnecting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnecting"))
-            |> SignalRConnection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
-            |> SignalRConnection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
-            |> SignalRConnection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
-            |> SignalRConnection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+        let startup = StartupConfig(Transport = [TransportType.LongPolling])
+        Connection.New()
+            |> Connection.WithLogging
+            |> Connection.ConnectionError (fun e -> JavaScript.Alert e)
+            |> Connection.Starting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection starting"))
+            |> Connection.Received (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection received"))
+            |> Connection.ConnectionSlow (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Slow connection"))
+            |> Connection.Reconnecting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnecting"))
+            |> Connection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
+            |> Connection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
+            |> Connection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
+            |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 
         Var.Set model.User (Prompt "Enter your name:" "")
         Doc.Element "div" [] [

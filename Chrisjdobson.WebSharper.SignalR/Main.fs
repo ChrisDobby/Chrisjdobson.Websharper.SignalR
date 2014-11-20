@@ -1,4 +1,4 @@
-namespace Chrisjdobson.WebSharper
+namespace Chrisjdobson.WebSharper.SignalR
 
 open IntelliFactory.WebSharper
 
@@ -23,7 +23,7 @@ type StateChange =
         oldState : ConnectionState
     }
 
-type SignalRStartupConfig[<JavaScript>]() =
+type StartupConfig[<JavaScript>]() =
     [<JavaScript>]
     let rec transportList transports =
         let transportText =
@@ -46,53 +46,53 @@ type SignalRStartupConfig[<JavaScript>]() =
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
-type SignalRConnection[<JavaScript>]() =
+type Connection[<JavaScript>]() =
     [<JavaScript>]
-    static member New() = SignalRConnection()
+    static member New() = Connection()
 
     [<JavaScript>]
     [<Inline "connection.logging = true">]
-    static member WithLogging (c : SignalRConnection) = c
+    static member WithLogging (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.logging = false">]
-    static member WithoutLogging (c : SignalRConnection) = c
+    static member WithoutLogging (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.error($f)">]
-    static member ConnectionError (f : string -> unit) (s : SignalRConnection) = s
+    static member ConnectionError (f : string -> unit) (s : Connection) = s
 
     [<JavaScript>]
     [<Inline "connection.starting($f)">]
-    static member Starting (f : unit -> unit) (c : SignalRConnection) = c
+    static member Starting (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.received($f)">]
-    static member Received (f : unit -> unit) (c : SignalRConnection) = c
+    static member Received (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.connectionSlow($f)">]
-    static member ConnectionSlow (f : unit -> unit) (c : SignalRConnection) = c
+    static member ConnectionSlow (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.reconnecting($f)">]
-    static member Reconnecting (f : unit -> unit) (c : SignalRConnection) = c
+    static member Reconnecting (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.reconnected($f)">]
-    static member Reconnected (f : unit -> unit) (c : SignalRConnection) = c
+    static member Reconnected (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.disconnected($f)">]
-    static member Disconnected (f : unit -> unit) (c : SignalRConnection) = c
+    static member Disconnected (f : unit -> unit) (c : Connection) = c
 
     [<JavaScript>]
     [<Inline "connection.stateChanged($f)">]
-    static member StateChanged (f : StateChange -> unit) (c : SignalRConnection) = c
+    static member StateChanged (f : StateChange -> unit) (c : Connection) = c
 
     [<JavaScript>]
-    [<Inline "connection.start($cfg).done(function() {alert(connection.transport.name)}).fail($fail)">]
-    static member Start (cfg : SignalRStartupConfig) (success : unit -> unit) (fail : string -> unit) (s : SignalRConnection) = ()
+    [<Inline "connection.start($cfg).done($success).fail($fail)">]
+    static member Start (cfg : StartupConfig) (success : unit -> unit) (fail : string -> unit) (s : Connection) = ()
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]

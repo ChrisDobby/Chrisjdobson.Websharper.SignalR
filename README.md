@@ -35,18 +35,18 @@ s |> SignalR.Send<Msg>
 Configure connection:
 
 ``` fsharp
-let startup = SignalRStartupConfig()
-SignalRConnection.New() 
-    |> SignalRConnection.WithLogging
-    |> SignalRConnection.ConnectionError (fun e -> JavaScript.Alert e)
-    |> SignalRConnection.Starting (fun _ -> JavaScript.Alert "Starting")
-    |> SignalRConnection.Received (fun _ -> JavaScript.Alert "Received")
-    |> SignalRConnection.ConnectionSlow (fun _ -> JavaScript.Alert "Slow connection")
-    |> SignalRConnection.Reconnecting (fun _ -> JavaScript.Alert "Reconnecting")
-    |> SignalRConnection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
-    |> SignalRConnection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
-	|> SignalRConnection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.oldState + " to " + StateText s.newState))
-    |> SignalRConnection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+let startup = StartupConfig()
+Connection.New() 
+    |> Connection.WithLogging
+    |> Connection.ConnectionError (fun e -> JavaScript.Alert e)
+    |> Connection.Starting (fun _ -> JavaScript.Alert "Starting")
+    |> Connection.Received (fun _ -> JavaScript.Alert "Received")
+    |> Connection.ConnectionSlow (fun _ -> JavaScript.Alert "Slow connection")
+    |> Connection.Reconnecting (fun _ -> JavaScript.Alert "Reconnecting")
+    |> Connection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
+    |> Connection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
+	|> Connection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.oldState + " to " + StateText s.newState))
+    |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 ```
 
 ## Samples ##
