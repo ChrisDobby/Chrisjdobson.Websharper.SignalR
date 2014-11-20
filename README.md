@@ -5,7 +5,7 @@ Chrisjdobson.Websharper.SignalR
 
 A SignalR extension for WebSharper.  Currently very early alpha version - more functionality to be added
 
-[![NuGet](http://img.shields.io/badge/NuGet-0.2%20alpha-orange.svg?style=flat)](http://www.nuget.org/packages/chrisjdobson.WebSharper.SignalR/)
+[![NuGet](http://img.shields.io/badge/NuGet-0.3%20alpha-orange.svg?style=flat)](http://www.nuget.org/packages/chrisjdobson.WebSharper.SignalR/)
 
 ## Usage ##
 
