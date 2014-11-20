@@ -8,7 +8,7 @@ type Ref(p, v) =
         member x.Paths with get() = None
 
 let bt =
-    BuildTool().PackageId("Chrisjdobson.WebSharper.SignalR", "0.3.0-alpha")
+    BuildTool().PackageId("Chrisjdobson.WebSharper.SignalR", "0.3.2-alpha")
         .References(fun r -> [r.Assembly "System.Web"])
     |> fun bt -> bt.WithFramework(bt.Framework.Net40)
 
