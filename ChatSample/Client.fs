@@ -55,7 +55,8 @@ module Client =
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> model.MessageList.Add m)
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> JavaScript.Alert ("Message received from " + m.Name))
 
-        SignalRConnection.New() 
+        let startup = SignalRStartupConfig(Transport = [TransportType.LongPolling])
+        SignalRConnection.New()
             |> SignalRConnection.WithLogging
             |> SignalRConnection.ConnectionError (fun e -> JavaScript.Alert e)
             |> SignalRConnection.Starting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection starting"))
@@ -65,7 +66,7 @@ module Client =
             |> SignalRConnection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
             |> SignalRConnection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
             |> SignalRConnection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
-            |> SignalRConnection.Start (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+            |> SignalRConnection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 
         Var.Set model.User (Prompt "Enter your name:" "")
         Doc.Element "div" [] [

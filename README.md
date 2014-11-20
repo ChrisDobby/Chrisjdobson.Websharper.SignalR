@@ -35,6 +35,7 @@ s |> SignalR.Send<Msg>
 Configure connection:
 
 ``` fsharp
+let startup = SignalRStartupConfig()
 SignalRConnection.New() 
     |> SignalRConnection.WithLogging
     |> SignalRConnection.ConnectionError (fun e -> JavaScript.Alert e)
@@ -45,7 +46,7 @@ SignalRConnection.New()
     |> SignalRConnection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
     |> SignalRConnection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
 	|> SignalRConnection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.oldState + " to " + StateText s.newState))
-    |> SignalRConnection.Start (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+    |> SignalRConnection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 ```
 
 ## Samples ##
