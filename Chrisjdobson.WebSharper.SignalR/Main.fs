@@ -5,6 +5,18 @@ open IntelliFactory.WebSharper
 open IntelliFactory.WebSharper
 open IntelliFactory.WebSharper.Html
 
+type ConnectionState =
+        | Connecting = 0
+        | Connected = 1
+        | Reconnecting = 2
+        | Disconnected = 4
+
+type StateChange =
+    {
+        newState : ConnectionState
+        oldState : ConnectionState
+    }
+
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
 type SignalRConnection[<JavaScript>]() =
@@ -46,6 +58,10 @@ type SignalRConnection[<JavaScript>]() =
     [<JavaScript>]
     [<Inline "connection.disconnected($f)">]
     static member Disconnected (f : unit -> unit) (c : SignalRConnection) = c
+
+    [<JavaScript>]
+    [<Inline "connection.stateChanged($f)">]
+    static member StateChanged (f : StateChange -> unit) (c : SignalRConnection) = c
 
     [<JavaScript>]
     [<Inline "connection.start()">]

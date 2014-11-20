@@ -40,6 +40,7 @@ SignalRConnection.New()
     |> SignalRConnection.Reconnecting (fun _ -> JavaScript.Alert "Reconnecting")
     |> SignalRConnection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
     |> SignalRConnection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
+	|> SignalRConnection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.oldState + " to " + StateText s.newState))
     |> SignalRConnection.Start
 ```
 

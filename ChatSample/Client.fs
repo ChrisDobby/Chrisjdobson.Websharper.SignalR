@@ -24,6 +24,14 @@ module Client =
                             ConnectionList = ListModel.Create (fun s -> fst s)[]
                         }
 
+    let StateText = 
+        function
+            | ConnectionState.Connected -> "connected"
+            | ConnectionState.Connecting -> "connecting"
+            | ConnectionState.Disconnected -> "disconnected"
+            | ConnectionState.Reconnecting -> "reconnecting"
+            | _ -> "unknown"
+
     let Main () =
         let model = CreateModel()
         let renderMessage (m : Msg) : Doc = 
@@ -56,6 +64,7 @@ module Client =
             |> SignalRConnection.Reconnecting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnecting"))
             |> SignalRConnection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
             |> SignalRConnection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
+            |> SignalRConnection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
             |> SignalRConnection.Start
 
         Var.Set model.User (Prompt "Enter your name:" "")
