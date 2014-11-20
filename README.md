@@ -25,7 +25,11 @@ s |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> messageList.Add m)
 And send like this:
 
 ``` fsharp
-s |> SignalR.Send<Msg> "chat" {User = "User1"; Message = "Hello"}
+s |> SignalR.Send<Msg> 
+		"chat" 
+		{User = "User1"; Message = "Hello"}
+        (fun _ -> ()) // called when successfully sent
+        (fun e -> JavaScript.Alert e) // called when error sending
 ```
 
 Configure connection:

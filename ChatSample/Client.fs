@@ -71,7 +71,12 @@ module Client =
         Doc.Element "div" [] [
             Doc.Element "div" [Attr.Class "container"] [
                 Doc.Input [] model.Message
-                Doc.Button "Send" [] (fun _ -> s |> SignalR.Send "chat" {SentAt = EcmaScript.Date.Now().ToString(); Name = model.User.Value; Message = model.Message.Value} |> ignore)            
+                Doc.Button "Send" [] (fun _ -> s |> SignalR.Send 
+                                                        "chat" 
+                                                        {SentAt = EcmaScript.Date.Now().ToString(); Name = model.User.Value; Message = model.Message.Value} 
+                                                        (fun _ -> ()) // called when successfully sent
+                                                        (fun e -> JavaScript.Alert e) // called when error sending
+                                                        |> ignore)            
                 Doc.Element "ul" [] [messageList]
             ]
             Doc.Element "div" [] [

@@ -80,6 +80,6 @@ type SignalR[<JavaScript>](hubName : string) =
     static member Receive<'a> (name : string) (f : 'a -> unit) (s : SignalR) = s
 
     [<JavaScript>]
-    [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m)">]
-    static member Send<'a> (name : string) (m : 'a) (s : SignalR) = s
+    [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m).done($success).fail($fail)">]
+    static member Send<'a> (name : string) (m : 'a) (success : unit -> unit) (fail : string -> unit) (s : SignalR) = s
 
