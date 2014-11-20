@@ -64,8 +64,8 @@ type SignalRConnection[<JavaScript>]() =
     static member StateChanged (f : StateChange -> unit) (c : SignalRConnection) = c
 
     [<JavaScript>]
-    [<Inline "connection.start()">]
-    static member Start (c : SignalRConnection) = ()
+    [<Inline "connection.start().done($success).fail($fail)">]
+    static member Start (success : unit -> unit) (fail : string -> unit) (c : SignalRConnection) = ()
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]

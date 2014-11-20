@@ -65,7 +65,7 @@ module Client =
             |> SignalRConnection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
             |> SignalRConnection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
             |> SignalRConnection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
-            |> SignalRConnection.Start
+            |> SignalRConnection.Start (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 
         Var.Set model.User (Prompt "Enter your name:" "")
         Doc.Element "div" [] [
