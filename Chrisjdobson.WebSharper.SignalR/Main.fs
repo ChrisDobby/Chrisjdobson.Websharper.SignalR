@@ -51,6 +51,10 @@ type Connection[<JavaScript>]() =
     static member New() = Connection()
 
     [<JavaScript>]
+    [<Inline "connection.url = $url + '/signalr'">]
+    static member New(url : string) = Connection()
+
+    [<JavaScript>]
     [<Inline "connection.logging = true">]
     static member WithLogging (c : Connection) = c
 

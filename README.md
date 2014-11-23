@@ -36,6 +36,7 @@ Configure connection:
 
 ``` fsharp
 let startup = StartupConfig()
+// To make a cross domain connection use Connection.New("www.abc.com")
 Connection.New() 
     |> Connection.WithLogging
     |> Connection.ConnectionError (fun e -> JavaScript.Alert e)
