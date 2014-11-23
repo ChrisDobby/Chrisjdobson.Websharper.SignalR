@@ -29,7 +29,7 @@ s |> SignalR.Send<Msg>
 		"chat" 
 		{User = "User1"; Message = "Hello"}
         (fun _ -> ()) // called when successfully sent
-        (fun e -> JavaScript.Alert e) // called when error sending
+        (fun e -> JavaScript.Alert e.Message) // called when error sending
 ```
 
 Configure connection:
@@ -46,8 +46,8 @@ Connection.New()
     |> Connection.Reconnecting (fun _ -> JavaScript.Alert "Reconnecting")
     |> Connection.Reconnected (fun _ -> JavaScript.Alert "Reconnected")
     |> Connection.Disconnected (fun _ -> JavaScript.Alert "Disconnected")
-	|> Connection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.oldState + " to " + StateText s.newState))
-    |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+	|> Connection.StateChanged (fun s -> JavaScript.Alert ("from " + StateText s.OldState + " to " + StateText s.NewState))
+    |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e.Message))
 ```
 
 ## Samples ##

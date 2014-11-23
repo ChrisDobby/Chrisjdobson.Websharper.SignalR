@@ -19,8 +19,20 @@ type ConnectionState =
 
 type StateChange =
     {
-        newState : ConnectionState
-        oldState : ConnectionState
+        [<Name "newState">]
+        NewState : ConnectionState
+
+        [<Name "oldState">]
+        OldState : ConnectionState
+    }
+
+type Error = 
+    {
+        [<Name "message">]
+        Message : string
+
+        [<Name "data">]
+        data : string
     }
 
 type StartupConfig[<JavaScript>]() =
@@ -100,7 +112,7 @@ type Connection[<JavaScript>]() =
 
     [<JavaScript>]
     [<Inline "connection.start($cfg).done($success).fail($fail)">]
-    static member Start (cfg : StartupConfig) (success : unit -> unit) (fail : string -> unit) (s : Connection) = ()
+    static member Start (cfg : StartupConfig) (success : unit -> unit) (fail : Error -> unit) (s : Connection) = ()
 
 [<Require(typeof<Dependencies.SignalRJs>)>]
 [<Require(typeof<Dependencies.SignalRConnection>)>]
@@ -115,6 +127,7 @@ type SignalR[<JavaScript>](hubName : string) =
     static member Receive<'a> (name : string) (f : 'a -> unit) (s : SignalR) = s
 
     [<JavaScript>]
-    [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m).done($success).fail($fail)">]
-    static member Send<'a> (name : string) (m : 'a) (success : unit -> unit) (fail : string -> unit) (s : SignalR) = s
+//    [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m).done($success).fail($fail)">]
+    [<Inline "connection.createHubProxy($s.hubName).invoke($name, $m).done($success)">]
+    static member Send<'a> (name : string) (m : 'a) (success : unit -> unit) (fail : Error -> unit) (s : SignalR) = s
 

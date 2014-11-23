@@ -74,8 +74,8 @@ module Client =
             |> Connection.Reconnecting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnecting"))
             |> Connection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
             |> Connection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
-            |> Connection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
-            |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
+            |> Connection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.OldState + " to " + StateText s.NewState)))
+            |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e.Message))
 
         Doc.Element "div" [] [
             Doc.Element "div" [Attr.Class "container"] [
@@ -84,7 +84,7 @@ module Client =
                                                         "chat" 
                                                         {SentAt = EcmaScript.Date.Now().ToString(); Name = model.User.Value; Message = model.Message.Value} 
                                                         (fun _ -> ()) // called when successfully sent
-                                                        (fun e -> JavaScript.Alert e) // called when error sending
+                                                        (fun e -> JavaScript.Alert e.Message) // called when error sending
                                                         |> ignore)            
                 Doc.Element "ul" [] [messageList]
             ]
