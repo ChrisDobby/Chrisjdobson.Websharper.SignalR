@@ -55,6 +55,10 @@ type Connection[<JavaScript>]() =
     static member New(url : string) = Connection()
 
     [<JavaScript>]
+    [<Inline "connection.qs = $qs">]
+    static member WithQueryString qs (c : Connection) = c
+
+    [<JavaScript>]
     [<Inline "connection.logging = true">]
     static member WithLogging (c : Connection) = c
 

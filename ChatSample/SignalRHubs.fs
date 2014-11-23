@@ -16,6 +16,10 @@ type Msg =
 
 type ChatHub() =
     inherit Hub()
+    override x.OnConnected() = 
+        let t:Task = x.Clients.All?userConnected x.Context.QueryString.["user"]
+        t.Wait()
+        base.OnConnected()
     member x.Chat (msg : Msg) =
         let t:Task = x.Clients.All?broadcastMessage msg
         t.Wait()

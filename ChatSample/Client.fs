@@ -14,6 +14,12 @@ module Client =
             ConnectionList : ListModel<string, string * string>
         }
 
+    type ConnectionParams[<JavaScript>]() =
+        [<Name "user">]
+        [<Stub>]
+        [<JavaScript>]
+        member val User = Unchecked.defaultof<string> with get, set
+
     [<Inline "prompt($question, $defaultResponse)">]
     let Prompt (question: string) (defaultResponse: string) = null : string
 
@@ -53,10 +59,13 @@ module Client =
 
         let s = SignalR.New "chatHub"
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> model.MessageList.Add m)
-                        |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> JavaScript.Alert ("Message received from " + m.Name))
+                        |> SignalR.Receive<string> "userConnected" (fun u -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString() + u, "User " + u + " connected"))
 
-        let startup = StartupConfig(Transport = [TransportType.LongPolling])
+        Var.Set model.User (Prompt "Enter your name:" "")
+
+        let startup = StartupConfig()
         Connection.New()
+            |> Connection.WithQueryString (ConnectionParams(User = model.User.Value))
             |> Connection.WithLogging
             |> Connection.ConnectionError (fun e -> JavaScript.Alert e)
             |> Connection.Starting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection starting"))
@@ -68,7 +77,6 @@ module Client =
             |> Connection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.oldState + " to " + StateText s.newState)))
             |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e))
 
-        Var.Set model.User (Prompt "Enter your name:" "")
         Doc.Element "div" [] [
             Doc.Element "div" [Attr.Class "container"] [
                 Doc.Input [] model.Message
