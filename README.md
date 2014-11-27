@@ -52,4 +52,4 @@ Connection.New()
 
 ## Samples ##
 
-See the ChatSample application in the solution for a simple example
+See the ChatSample and ProcessSample applications in the solution for simple examples
