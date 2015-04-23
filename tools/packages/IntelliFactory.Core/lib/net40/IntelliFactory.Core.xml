@@ -1246,6 +1246,21 @@
  unique key combined with a recipe to construct a default value.
 </summary>
 </member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:IntelliFactory.Core.Parametrization.ParametrizationExtensions">
+
+</member>
 <member name="T:IntelliFactory.Core.Parametrization">
 <summary>
  Implements lightweight support for dynamic variable binding.

@@ -8,7 +8,7 @@ type Ref(p, v) =
         member x.Paths with get() = None
 
 let bt =
-    BuildTool().PackageId("Chrisjdobson.WebSharper.SignalR", "0.4.1")
+    BuildTool().PackageId("Chrisjdobson.WebSharper.SignalR", "0.5.1")
         .References(fun r -> [r.Assembly "System.Web"])
     |> fun bt -> bt.WithFramework(bt.Framework.Net40)
 
@@ -23,8 +23,8 @@ bt.Solution [
         .Configure(fun c ->
             { c.WithApache20License() with
                 Title = Some "Chrisjdobson.WebSharper.SignalR"
-                Version = System.Version("0.4.1")
-                NuGetReferences = [Ref("Microsoft.AspNet.SignalR.SystemWeb", "2.1.2")]
+                Version = System.Version("0.5.1")
+                NuGetReferences = [Ref("Microsoft.AspNet.SignalR.SystemWeb", "2.2.0")]
                 ProjectUrl = Some "https://github.com/chrisdobby/chrisjdobson.websharper.signalr"
                 Description = "SignalR extension for WebSharper" })
         .Add(main)
