@@ -1,14 +1,14 @@
 namespace ProcessSample
 
-open IntelliFactory.Html
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Sitelets
+open WebSharper.Html.Server
+open WebSharper
+open WebSharper.Sitelets
 
 type Action =
     | Home
 
 module Controls =    
-    open IntelliFactory.WebSharper.UI.Next
+    open WebSharper.UI.Next
 
     [<Sealed>]
     type EntryPoint() =
@@ -16,7 +16,7 @@ module Controls =
 
         [<JavaScript>]
         override __.Body =
-            Client.Main() |> Doc.AsPagelet
+            Client.Main() :> _
 
 
 module Skin =

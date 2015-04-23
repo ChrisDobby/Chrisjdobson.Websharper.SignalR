@@ -6,7 +6,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{5802dedc-778c-4d78-a1f3-79738b17848f}</ProjectGuid>
     <WebSharperProject>Library</WebSharperProject>
-    <NuGetPackageImportStamp>79b79104</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>d008a544</NuGetPackageImportStamp>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -47,25 +47,81 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
-  <Import Project="..\packages\WebSharper.2.5.127.64\build\WebSharper.targets" Condition="Exists('..\packages\WebSharper.2.5.127.64\build\WebSharper.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\WebSharper.2.5.127.64\build\WebSharper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WebSharper.2.5.127.64\build\WebSharper.targets'))" />
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\WebSharper.3.0.54.140\build\WebSharper.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\WebSharper.3.0.54.140\build\WebSharper.targets'))" />
   </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\WebSharper.3.0.54.140\build\WebSharper.targets" Condition="Exists('..\packages\WebSharper.3.0.54.140\build\WebSharper.targets')" />
   <ItemGroup>
-    <Content Include="packages.config" />
     <Compile Include="Dependencies.fs" />
     <Compile Include="Main.fs" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="IntelliFactory.Xml">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\IntelliFactory.Xml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
+    <Reference Include="WebSharper.Collections">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Control">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Control.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Core">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Core.JavaScript">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Core.JavaScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Html.Client">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Html.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Html.Server">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Html.Server.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.InterfaceGenerator">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.InterfaceGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.JavaScript">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.JavaScript.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.JQuery">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.JQuery.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Main">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Main.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Sitelets">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Sitelets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Testing">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Testing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebSharper.Web">
+      <HintPath>..\packages\WebSharper.3.0.54.140\lib\net40\WebSharper.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿module Dependancies
 
-open IntelliFactory.WebSharper
+open WebSharper
 
 [<Require(typeof<JQuery.Resources.JQuery>)>]
 [<Sealed>]

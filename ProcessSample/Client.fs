@@ -1,7 +1,7 @@
 namespace ProcessSample
 
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.UI.Next
+open WebSharper
+open WebSharper.UI.Next
 open Chrisjdobson.WebSharper.SignalR
 
 [<JavaScript>]

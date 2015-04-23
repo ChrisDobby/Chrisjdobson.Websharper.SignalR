@@ -1,8 +1,8 @@
 namespace ChatSample
 
-open IntelliFactory.Html
-open IntelliFactory.WebSharper
-open IntelliFactory.WebSharper.Sitelets
+open WebSharper.Html.Server
+open WebSharper
+open WebSharper.Sitelets
 
 type Action =
     | Home
@@ -15,7 +15,7 @@ module Controls =
 
         [<JavaScript>]
         override __.Body =
-            Client.Main()
+            Client.Main() :> _
 
 module Skin =
     open System.Web

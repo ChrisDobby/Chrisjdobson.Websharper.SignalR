@@ -1,8 +1,8 @@
 namespace ChatSample
 
-open IntelliFactory.WebSharper
+open WebSharper
 open Chrisjdobson.WebSharper.SignalR
-open IntelliFactory.WebSharper.UI.Next
+open WebSharper.UI.Next
 
 [<JavaScript>]
 module Client =
@@ -59,7 +59,7 @@ module Client =
 
         let s = SignalR.New "chatHub"
                         |> SignalR.Receive<Msg> "broadcastMessage" (fun m -> model.MessageList.Add m)
-                        |> SignalR.Receive<string> "userConnected" (fun u -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString() + u, "User " + u + " connected"))
+                        |> SignalR.Receive<string> "userConnected" (fun u -> model.ConnectionList.Add (JavaScript.Date.Now().ToString() + u, "User " + u + " connected"))
 
         Var.Set model.User (Prompt "Enter your name:" "")
 
@@ -67,24 +67,24 @@ module Client =
         Connection.New()
             |> Connection.WithQueryString (ConnectionParams(User = model.User.Value))
             |> Connection.WithLogging
-            |> Connection.ConnectionError (fun e -> JavaScript.Alert e)
-            |> Connection.Starting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection starting"))
-            |> Connection.Received (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection received"))
-            |> Connection.ConnectionSlow (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Slow connection"))
-            |> Connection.Reconnecting (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnecting"))
-            |> Connection.Reconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection reconnected"))
-            |> Connection.Disconnected (fun _ -> model.ConnectionList.Add (EcmaScript.Date.Now().ToString(), "Connection disconnected"))
-            |> Connection.StateChanged (fun s -> model.ConnectionList.Add(EcmaScript.Date.Now().ToString(), ("from " + StateText s.OldState + " to " + StateText s.NewState)))
-            |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.Alert ("connection error: " + e.Message))
+            |> Connection.ConnectionError (fun e -> JavaScript.JS.Alert e)
+            |> Connection.Starting (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Connection starting"))
+            |> Connection.Received (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Connection received"))
+            |> Connection.ConnectionSlow (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Slow connection"))
+            |> Connection.Reconnecting (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Connection reconnecting"))
+            |> Connection.Reconnected (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Connection reconnected"))
+            |> Connection.Disconnected (fun _ -> model.ConnectionList.Add (JavaScript.Date.Now().ToString(), "Connection disconnected"))
+            |> Connection.StateChanged (fun s -> model.ConnectionList.Add(JavaScript.Date.Now().ToString(), ("from " + StateText s.OldState + " to " + StateText s.NewState)))
+            |> Connection.Start startup (fun _ -> ()) (fun e -> JavaScript.JS.Alert ("connection error: " + e.Message))
 
         Doc.Element "div" [] [
             Doc.Element "div" [Attr.Class "container"] [
                 Doc.Input [] model.Message
                 Doc.Button "Send" [] (fun _ -> s |> SignalR.Send 
                                                         "chat" 
-                                                        {SentAt = EcmaScript.Date.Now().ToString(); Name = model.User.Value; Message = model.Message.Value} 
+                                                        {SentAt = JavaScript.Date.Now().ToString(); Name = model.User.Value; Message = model.Message.Value} 
                                                         (fun _ -> ()) // called when successfully sent
-                                                        (fun e -> JavaScript.Alert e.Message) // called when error sending
+                                                        (fun e -> JavaScript.JS.Alert e.Message) // called when error sending
                                                         |> ignore)            
                 Doc.Element "ul" [] [messageList]
             ]
