@@ -31,8 +31,8 @@ module Skin =
         Content.Template<Page>("~/Main.html")
             .With("body", fun x -> x.Body)
 
-    let WithTemplate title body : Content<Action> =
-        Content.WithTemplate MainTemplate <| fun context ->
+    let WithTemplate title body context : Async<Content<Action>> =
+        Content.WithTemplate MainTemplate
             {
                 Body = body context
             }

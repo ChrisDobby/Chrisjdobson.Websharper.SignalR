@@ -1,7 +1,6 @@
 namespace Chrisjdobson.WebSharper.SignalR
 
 open WebSharper
-open WebSharper.Html
 
 type TransportType =
     | WebSockets
