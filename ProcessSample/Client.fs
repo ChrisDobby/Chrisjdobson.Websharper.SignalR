@@ -2,6 +2,7 @@ namespace ProcessSample
 
 open WebSharper
 open WebSharper.UI.Next
+open WebSharper.UI.Next.Client
 open Chrisjdobson.WebSharper.SignalR
 
 [<JavaScript>]
@@ -39,7 +40,7 @@ module Client =
                     ]
                 ]
                 Doc.Element "tbody" [] [
-                    ListModel.View processes |> Doc.ConvertBy (fun p -> p.Id) (renderProcess)
+                    ListModel.View processes |> Doc.BindSeqCachedBy (fun p -> p.Id) (renderProcess)
                 ]
             ]
 

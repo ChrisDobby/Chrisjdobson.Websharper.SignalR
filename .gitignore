@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+/.vs/
 
 # Build results
 [Dd]ebug/
@@ -179,3 +180,7 @@ Scripts/
 Content/
 
 /build
+
+# NuGet packages
+/packages/
+/tools/packages/

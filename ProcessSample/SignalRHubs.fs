@@ -20,12 +20,14 @@ type ProcessesHub() =
 
     let GetProcesses() = 
         System.Diagnostics.Process.GetProcesses()
-            |> Array.map (fun p -> {
-                                        Id = p.Id
-                                        Name = p.ProcessName
-                                        Machine = p.MachineName
-                                        Started = if p.ProcessName = "Idle" then "" else p.StartTime.ToString()
-                                   })
+            |> Array.choose (fun p ->
+                try Some {
+                        Id = p.Id
+                        Name = p.ProcessName
+                        Machine = p.MachineName
+                        Started = if p.ProcessName = "Idle" then "" else p.StartTime.ToString()
+                    }
+                with _ -> None)
             |> Array.sortBy (fun p -> p.Id)
 
     static let mutable t = Unchecked.defaultof<System.Threading.Timer>

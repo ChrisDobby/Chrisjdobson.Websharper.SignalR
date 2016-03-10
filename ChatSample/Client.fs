@@ -3,6 +3,7 @@ namespace ChatSample
 open WebSharper
 open Chrisjdobson.WebSharper.SignalR
 open WebSharper.UI.Next
+open WebSharper.UI.Next.Client
 
 [<JavaScript>]
 module Client =
@@ -44,17 +45,17 @@ module Client =
             Doc.Element "li" [] [
                                     Doc.Element "strong" [] [Doc.TextNode m.Name]
                                     Doc.TextNode (": " + m.Message)
-                                ]
+                                ] :> _
 
         let renderConnectionMessage (s : string * string) : Doc =
-            Doc.Element "li" [] [Doc.TextNode (snd s)]
+            Doc.Element "li" [] [Doc.TextNode (snd s)] :> _
 
         let connectionList = 
             ListModel.View model.ConnectionList
-                |> Doc.ConvertBy (fun s -> fst s) (renderConnectionMessage)
+                |> Doc.BindSeqCachedBy (fun s -> fst s) (renderConnectionMessage)
 
         let messageList = ListModel.View model.MessageList
-                            |> Doc.ConvertBy (fun m -> m.SentAt + m.Name) (renderMessage)
+                            |> Doc.BindSeqCachedBy (fun m -> m.SentAt + m.Name) (renderMessage)
 
 
         let s = SignalR.New "chatHub"
@@ -92,4 +93,3 @@ module Client =
                 Doc.Element "ul" [] [connectionList]
             ]
         ]
-        |> Doc.AsPagelet

@@ -1,12 +1,6 @@
 #load "tools/includes.fsx"
 open IntelliFactory.Build
 
-type Ref(p, v) =
-    interface INuGetReference with
-        member x.PackageId with get() = p
-        member x.PackageVersion with get() = Some v
-        member x.Paths with get() = None
-
 let bt =
     BuildTool().PackageId("Chrisjdobson.WebSharper.SignalR", "0.6.1")
         .References(fun r -> [r.Assembly "System.Web"])
@@ -24,9 +18,9 @@ bt.Solution [
             { c.WithApache20License() with
                 Title = Some "Chrisjdobson.WebSharper.SignalR"
                 Version = System.Version("0.6.1")
-                NuGetReferences = [Ref("Microsoft.AspNet.SignalR.SystemWeb", "2.2.0")]
                 ProjectUrl = Some "https://github.com/chrisdobby/chrisjdobson.websharper.signalr"
                 Description = "SignalR extension for WebSharper" })
+        .AddDependency("Microsoft.AspNet.SignalR.SystemWeb", version = "2.2.0")
         .Add(main)
 
 ]
